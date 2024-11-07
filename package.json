@@ -1,0 +1,39 @@
+{
+  "name": "json-2-chatml",
+  "version": "0.1.1",
+  "description": "convert json to chatml",
+  "main": "dist/index.js",
+  "keywords": [
+    "chatml",
+    "qwen",
+    "conversion",
+    "chat",
+    "format",
+    "json"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepublishOnly": "npm run build",
+    "test": "jest"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "nunjucks": "^3.2.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/nunjucks": "^3.2.6",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.6.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Suixinlei/json-2-chatml.git"
+  }
+}
