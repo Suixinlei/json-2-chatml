@@ -47,8 +47,6 @@ const qwenResult = convert(conversation, { templateKey: 'qwen25' });
   interface Config {
     templateKey: 'chatML' | 'qwen25';  // Required: Template format to use
     addGenerationPrompt?: boolean;      // Optional: Add assistant prompt at the end (default: false)
-    isBeginningOfSequence?: boolean;    // Optional: Add BOS token (default: false)
-    isEndOfSequence?: boolean;          // Optional: Add EOS token (default: false)
   }
   ```
 

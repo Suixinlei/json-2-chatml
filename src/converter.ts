@@ -7,8 +7,6 @@ import { strftime } from './util';
 interface ApplyTemplateOptions {
   templateKey?: string;
   addGenerationPrompt?: boolean;
-  isBeginningOfSequence?: boolean;
-  isEndOfSequence?: boolean;
 }
 
 export const convert = (
@@ -18,8 +16,6 @@ export const convert = (
   const {
     templateKey = 'default',
     addGenerationPrompt = false,
-    isBeginningOfSequence,
-    isEndOfSequence
   } = options;
 
   const nunjucksEnv = new nunjucks.Environment(null, { autoescape: false });
@@ -44,21 +40,13 @@ export const convert = (
       eos_token: template.eosToken
     });
 
-    const shouldAddBosToken =
-      isBeginningOfSequence !== undefined
-        ? isBeginningOfSequence
-        : template.addBosToken;
-
-    const shouldAddEosToken =
-      isEndOfSequence !== undefined ? isEndOfSequence : template.addEosToken;
-
-    if (shouldAddBosToken && template.bosToken) {
+    if (template.addBosToken && template.bosToken) {
       if (!result.startsWith(template.bosToken)) {
         result = template.bosToken + result;
       }
     }
 
-    if (shouldAddEosToken && template.eosToken) {
+    if (template.addEosToken && template.eosToken) {
       if (!result.endsWith(template.eosToken)) {
         result += template.eosToken;
       }
